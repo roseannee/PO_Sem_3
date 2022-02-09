@@ -1,0 +1,18 @@
+length;93
+0;
+15;Po vsomu sv³tu stala novina:
+21;D³va Mar³ya Sina rodila.
+28;S³nom pritrusila,
+31;V yaslakh polozhila
+34;Gospodnogo Sina.
+41;S³nom pritrusila,
+44;V yaslakh polozhila
+48;Gospodnogo Sina.
+54;D³va Mar³ya Boga prosila:
+61;– V shcho zh bi ya Sina svogo povila?
+67;Ti, nebesnii Tsaryu,
+71;Prishli svo¿ dari,
+74;Tsomu volodaryu.
+81;Ti, nebesnii Tsaryu,
+84;Prishli svo¿ dari,
+87;Tsomu volodaryu.

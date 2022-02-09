@@ -47,6 +47,7 @@ namespace lab4
                 {
                     case 1:
                         string enteredWord;
+                        string result = "";
 
                         LanguageSelection();
                         langOption = Convert.ToInt32(Console.ReadLine());
@@ -58,46 +59,42 @@ namespace lab4
                             Console.Write("\nEnter word: ");
                             enteredWord = Console.ReadLine();
 
-                            foreach (var i in vocabulary)
+                            if (vocabulary.ContainsKey(enteredWord))
                             {
-                                if (enteredWord == i.Key)
-                                {
-                                    isInVocabulary = true;
+                                isInVocabulary = true;
 
-                                    Console.WriteLine($"Translation: {i.Value}");
+                                result = vocabulary[enteredWord];
+                                Console.WriteLine($"Translation: {result}");
 
-                                    historyWord.Enqueue(i.Key);
-                                    historyValue.Enqueue(i.Value);
-
-                                    break;
-                                }
+                                historyWord.Enqueue(enteredWord);
+                                historyValue.Enqueue(result);
                             }
 
                             if (!isInVocabulary)
+                            {
                                 Console.WriteLine("There is no such word in the vocabulary!");
+                            }
                         }
                         else if (langOption == 2)
                         {
                             Console.Write("\nEnter word: ");
                             enteredWord = Console.ReadLine();
 
-                            foreach (var i in vocabulary)
+                            if (vocabulary.ContainsValue(enteredWord))
                             {
-                                if (enteredWord == i.Value)
-                                {
-                                    isInVocabulary = true;
+                                isInVocabulary = true;
 
-                                    Console.WriteLine($"Translation: {i.Key}");
+                                result = vocabulary.First(x => x.Value == enteredWord).Key;
+                                Console.WriteLine($"Translation: {result}");
 
-                                    historyWord.Enqueue(i.Value);
-                                    historyValue.Enqueue(i.Key);
-
-                                    break;
-                                }
+                                historyWord.Enqueue(enteredWord);
+                                historyValue.Enqueue(result);
                             }
 
                             if (!isInVocabulary)
+                            {
                                 Console.WriteLine("There is no such word in the vocabulary!");
+                            }
                         }
 
                         break;
@@ -108,10 +105,14 @@ namespace lab4
                             Console.WriteLine();
 
                             while (historyWord.Count > 0)
+                            {
                                 Console.WriteLine($"{historyWord.Dequeue()} > {historyValue.Dequeue()}");
+                            }
                         }
                         else
+                        {
                             Console.WriteLine("\nNo translation history!");
+                        }
 
                         break;
 
@@ -124,14 +125,18 @@ namespace lab4
                             Console.WriteLine("");
 
                             foreach (var i in vocabulary.OrderBy(i => i.Key))
+                            {
                                 Console.WriteLine($"{i.Key} > {i.Value}");
+                            }
                         }
                         else if (langOption == 2)
                         {
                             Console.WriteLine("");
 
                             foreach (var i in vocabulary.OrderBy(i => i.Value))
+                            {
                                 Console.WriteLine($"{i.Value} > {i.Key}");
+                            }
                         }
 
                         break;
@@ -163,28 +168,23 @@ namespace lab4
                             Console.Write("\nType word you want delete: ");
                             deleteWord = Console.ReadLine();
 
-                            foreach (var i in vocabulary)
+                            if (vocabulary.ContainsKey(deleteWord))
                             {
-                                if (deleteWord == i.Value)
-                                {
-                                    isInVocabulary = true;
+                                isInVocabulary = true;
 
-                                    vocabulary.Remove(deleteWord);
+                                vocabulary.Remove(deleteWord);
+                            }
+                            else if(vocabulary.ContainsValue(deleteWord))
+                            {
+                                isInVocabulary = true;
 
-                                    break;
-                                }
-                                else if (deleteWord == i.Key)
-                                {
-                                    isInVocabulary = true;
-
-                                    vocabulary.Remove(deleteWord);
-
-                                    break;
-                                }
+                                vocabulary.Remove(vocabulary.First(x => x.Value == deleteWord).Key);
                             }
 
                             if (!isInVocabulary)
+                            {
                                 Console.WriteLine("There is no such word in the vocabulary!");
+                            }
                         }
 
                         break;
@@ -196,7 +196,9 @@ namespace lab4
                         HashSet<int> usedWords = new HashSet<int>();
                         List<string> list = new List<string>();
                         foreach (var i in vocabulary)
+                        {
                             list.Add(i.Key);
+                        }
 
                         LanguageSelection();
                         langOption = Convert.ToInt32(Console.ReadLine());
@@ -219,8 +221,12 @@ namespace lab4
                                     rand = random.Next(0, list.Count);
 
                                     foreach (var j in usedWords)
+                                    {
                                         if (j == rand)
+                                        {
                                             wasUsed = true;
+                                        }
+                                    }
 
                                     usedWords.Add(rand);
                                 } while (wasUsed);
@@ -258,8 +264,12 @@ namespace lab4
                                     rand = random.Next(0, list.Count);
 
                                     foreach (var j in usedWords)
+                                    {
                                         if (j == rand)
+                                        {
                                             wasUsed = true;
+                                        }
+                                    }
 
                                     usedWords.Add(rand);
                                 } while (wasUsed);

@@ -32,6 +32,8 @@
             this.tb1_2 = new System.Windows.Forms.TextBox();
             this.tb1_3 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.integersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.a_lb = new System.Windows.Forms.Label();
             this.b_lb = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.tb3_1 = new System.Windows.Forms.TextBox();
             this.integers_gb = new System.Windows.Forms.GroupBox();
             this.people_gb = new System.Windows.Forms.GroupBox();
-            this.integersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.integers_gb.SuspendLayout();
             this.people_gb.SuspendLayout();
@@ -92,6 +92,20 @@
             this.menuStrip1.Size = new System.Drawing.Size(389, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // integersToolStripMenuItem
+            // 
+            this.integersToolStripMenuItem.Name = "integersToolStripMenuItem";
+            this.integersToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.integersToolStripMenuItem.Text = "Integers";
+            this.integersToolStripMenuItem.Click += new System.EventHandler(this.integersToolStripMenuItem_Click);
+            // 
+            // peopleToolStripMenuItem
+            // 
+            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.peopleToolStripMenuItem.Text = "People";
+            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
@@ -257,20 +271,6 @@
             this.people_gb.TabStop = false;
             this.people_gb.Text = "people";
             // 
-            // integersToolStripMenuItem
-            // 
-            this.integersToolStripMenuItem.Name = "integersToolStripMenuItem";
-            this.integersToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.integersToolStripMenuItem.Text = "Integers";
-            this.integersToolStripMenuItem.Click += new System.EventHandler(this.integersToolStripMenuItem_Click);
-            // 
-            // peopleToolStripMenuItem
-            // 
-            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.peopleToolStripMenuItem.Text = "People";
-            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,7 +294,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lab 10";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.integers_gb.ResumeLayout(false);

@@ -103,5 +103,10 @@ namespace lab10
             people_ToString_bt.Enabled = !x;
             people_Sort_bt.Enabled = !x;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
